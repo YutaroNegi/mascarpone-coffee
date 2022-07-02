@@ -1,0 +1,3 @@
+"dev": "concurrently \"npm run back\" \"npm run front\"",
+"back": "nodemon index.js",
+"front": "npm start --prefix front"
