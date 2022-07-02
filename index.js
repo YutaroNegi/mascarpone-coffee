@@ -20,3 +20,8 @@ async function connectMongoDB(){
         console.log('error connecting to mongodb, error: ', error);
     }    
 }
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../front/build/index.html'))
+})
