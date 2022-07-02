@@ -21,7 +21,7 @@ let auth = function(req, res, next) {
     }
 }
 
-router.post('/api/createAccount',async function (req, res){
+router.post('/createAccount',async function (req, res){
     try {
         const salt = bcrypt.genSaltSync(saltRounds);
         const hashPassword = bcrypt.hashSync(req.body.password, salt);
@@ -42,7 +42,7 @@ router.post('/api/createAccount',async function (req, res){
 
 })
 
-router.post('/api/login',async function (req, res){
+router.post('/login',async function (req, res){
     try {
         let found = await MascarponeUser.findOne({ email: req.body.email}).exec();
         let check = bcrypt.compareSync(req.body.password, found.password)
@@ -62,7 +62,7 @@ router.post('/api/login',async function (req, res){
 
 })
 
-router.post('/api/verifyUser', auth,async function (req, res){
+router.post('/verifyUser', auth,async function (req, res){
     try {
         let found = await MascarponeUser.findOne({ email: req.body.email}).exec();
         let orders = await MascarponeOrder.find({ email: req.body.email }).exec();
@@ -76,7 +76,7 @@ router.post('/api/verifyUser', auth,async function (req, res){
 
 })
 
-router.post('/api/updateUser', auth, async function (req, res){
+router.post('/updateUser', auth, async function (req, res){
     try {
         let found = await MascarponeUser.findOne({ email: req.body.email}).exec();
         let check = bcrypt.compareSync(req.body.password, found.password)
@@ -94,7 +94,7 @@ router.post('/api/updateUser', auth, async function (req, res){
     }
 })
 
-router.post('/api/createOrder',auth ,async function (req, res){
+router.post('/createOrder',auth ,async function (req, res){
     try {
         const mascarponeOrder = new MascarponeOrder({
             orderID: Math.floor(Math.random() * 100000),
