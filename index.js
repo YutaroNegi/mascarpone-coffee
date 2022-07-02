@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'front/build')));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../front/build/index.html'))
+    res.sendFile(path.join(__dirname, 'front/build/index.html'));
 })
 app.use('/api', routes)
 
