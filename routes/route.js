@@ -46,7 +46,7 @@ router.post('/login',async function (req, res){
     try {
         let found = await MascarponeUser.findOne({ email: req.body.email}).exec();
         let check = bcrypt.compareSync(req.body.password, found.password)
-        let orders = await MascarponeOrder.find({ email: req.body.email }).exec();
+        let orders = await MascarponeOrder.find({ userEmail: req.body.email }).exec();
 
         if(check){
             const token = jwt.sign({email: req.body.email}, SECRET)
