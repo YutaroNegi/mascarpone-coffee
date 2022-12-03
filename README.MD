@@ -49,7 +49,7 @@
  
  # Como testar
  <ol>
-    <li>É possivel testar projeto hospedado no <a href="https://mascarpone-coffee.herokuapp.com/">heroku</a></li>
+    <li>É possivel testar projeto hospedado na <a href="http://15.229.66.207:5000/">AWS</a></li> ou no <a href="https://mascarpone-coffee.herokuapp.com/">heroku</a></li>
     <li>Porém se quiser testar na sua máquina só seguir os próximos passos</li>
     <li>Abre o terminal de sua prefência</li>
     <li>git clone https://github.com/YutaroNegi/mascarpone-coffee</li>
